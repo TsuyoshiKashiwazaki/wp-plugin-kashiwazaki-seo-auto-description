@@ -1,0 +1,10 @@
+# Kashiwazaki SEO Auto Description - GPTモデルリスト
+# 形式: model_id|display_name|category|description
+
+# 🤖 OpenAI GPT 4.1シリーズ
+gpt-4.1-nano|GPT-4.1 Nano - 最も経済的|standard|低コスト・基本機能
+gpt-4.1-mini|GPT-4.1 Mini - コストパフォーマンスが良い|standard|バランス型・中程度コスト
+gpt-4.1|GPT-4.1 - 高性能|premium|高性能・高コスト
+
+# デフォルトモデル
+DEFAULT_MODEL=gpt-4.1-nano
