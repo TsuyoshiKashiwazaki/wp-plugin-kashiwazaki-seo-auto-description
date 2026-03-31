@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>トラブルシューティング - Auto Description マニュアル</title>
+    <link rel="stylesheet" href="css/style.css?v=1">
+</head>
+<body>
+    <button class="hamburger-btn" aria-label="メニューを開く">&#9776;</button>
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <h2 style="color:#fff;">Auto Description</h2>
+            <span class="version">v1.0.1</span>
+            <img src="images/main-visual.png" alt="" style="width:100%;border-radius:4px;margin-top:8px;">
+        </div>
+        <ul>
+            <li><a href="index.html">概要</a></li>
+            <li><a href="setup.html">インストール・初期設定</a></li>
+            <li><a href="bulk-generation.html">一括ディスクリプション生成</a></li>
+            <li><a href="troubleshooting.html">トラブルシューティング</a></li>
+        </ul>
+    </nav>
+    <main class="content">
+        <h1>トラブルシューティング</h1>
+
+        <p class="lead">よくある問題とその解決方法をまとめています。</p>
+
+        <h2>ディスクリプションが生成されない</h2>
+        <p><strong>原因:</strong> OpenAI APIキーが未設定、または無効</p>
+        <div class="step">
+            <span class="step-number">1</span>
+            <div class="step-body">
+                <p>設定画面でAPIキーが入力されているか確認</p>
+            </div>
+        </div>
+        <div class="step">
+            <span class="step-number">2</span>
+            <div class="step-body">
+                <p>「APIキーテスト」ボタンで接続を確認</p>
+            </div>
+        </div>
+        <div class="step">
+            <span class="step-number">3</span>
+            <div class="step-body">
+                <p>APIキーが <code>sk-</code> で始まる正しい形式か確認</p>
+            </div>
+        </div>
+        <div class="step">
+            <span class="step-number">4</span>
+            <div class="step-body">
+                <p>OpenAIアカウントにクレジットが残っているか確認</p>
+            </div>
+        </div>
+        <div class="callout callout-tip">
+            <p>APIキーが正しくてもクレジット残高がない場合はエラーになります。OpenAIダッシュボードで残高を確認してください。</p>
+        </div>
+
+        <h2>生成結果が期待と異なる</h2>
+        <p><strong>原因:</strong> AIモデルや文字数設定が最適でない</p>
+        <div class="step">
+            <span class="step-number">1</span>
+            <div class="step-body">
+                <p>より高性能なモデル（GPT-4.1）に変更して試す</p>
+            </div>
+        </div>
+        <div class="step">
+            <span class="step-number">2</span>
+            <div class="step-body">
+                <p>文字数設定を調整する（短すぎると情報不足、長すぎると冗長に）</p>
+            </div>
+        </div>
+        <div class="step">
+            <span class="step-number">3</span>
+            <div class="step-body">
+                <p>記事の本文が十分に書かれているか確認（AIは本文から内容を読み取る）</p>
+            </div>
+        </div>
+        <div class="callout callout-note">
+            <p>AIは本文の最初の約3000文字を参照します。記事の冒頭に重要な情報を含めることで、より適切なディスクリプションが生成されます。</p>
+        </div>
+
+        <h2>一括生成が途中で止まる</h2>
+        <p><strong>原因:</strong> APIレート制限またはタイムアウト</p>
+        <div class="step">
+            <span class="step-number">1</span>
+            <div class="step-body">
+                <p>しばらく待ってから再実行する（OpenAI APIにはレート制限がある）</p>
+            </div>
+        </div>
+        <div class="step">
+            <span class="step-number">2</span>
+            <div class="step-body">
+                <p>一度に処理する件数を減らす（50件以下を推奨）</p>
+            </div>
+        </div>
+        <div class="step">
+            <span class="step-number">3</span>
+            <div class="step-body">
+                <p>ブラウザの開発者ツールでエラーログを確認</p>
+            </div>
+        </div>
+        <div class="callout callout-warning">
+            <p>処理中はブラウザのタブを閉じたり、ページを遷移しないでください。処理が中断されます。</p>
+        </div>
+
+        <h2>メタボックスが投稿編集画面に表示されない</h2>
+        <p><strong>原因:</strong> 投稿タイプが有効化されていない</p>
+        <div class="step">
+            <span class="step-number">1</span>
+            <div class="step-body">
+                <p>設定画面で「対応する投稿タイプ」を確認</p>
+            </div>
+        </div>
+        <div class="step">
+            <span class="step-number">2</span>
+            <div class="step-body">
+                <p>対象の投稿タイプにチェックを入れて保存</p>
+            </div>
+        </div>
+        <div class="step">
+            <span class="step-number">3</span>
+            <div class="step-body">
+                <p>ブロックエディタの場合、サイドバーの「投稿」タブ内にメタボックスが表示される</p>
+            </div>
+        </div>
+
+        <h2>動作要件</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width:35%;">項目</th>
+                    <th>要件</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>WordPress</td>
+                    <td>5.0以上</td>
+                </tr>
+                <tr>
+                    <td>PHP</td>
+                    <td>7.4以上</td>
+                </tr>
+                <tr>
+                    <td>必要なAPI</td>
+                    <td>OpenAI API（APIキー必須）</td>
+                </tr>
+                <tr>
+                    <td>対応ブラウザ</td>
+                    <td>モダンブラウザ（Chrome, Firefox, Safari, Edge）</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>技術仕様</h2>
+        <ul>
+            <li><strong>データ保存:</strong> wp_postmeta（生成済みディスクリプション）、wp_options（プラグイン設定）</li>
+            <li><strong>カスタムテーブル:</strong> なし</li>
+            <li><strong>外部通信:</strong> OpenAI API（https://api.openai.com/v1/chat/completions, https://api.openai.com/v1/models）</li>
+            <li><strong>通信方式:</strong> wp_remote_post / wp_remote_get（SSL有効、タイムアウト30秒）</li>
+            <li><strong>Cronイベント:</strong> なし</li>
+            <li><strong>メール送信:</strong> なし</li>
+            <li><strong>セキュリティ:</strong> nonce検証、capability チェック（manage_options）、入出力サニタイズ</li>
+        </ul>
+
+        <h2>プラグインのアーキテクチャ</h2>
+        <figure class="infographic">
+            <img src="images/infographics/architecture.png" alt="プラグインのアーキテクチャ">
+            <figcaption>プラグインのアーキテクチャ</figcaption>
+        </figure>
+
+        <nav class="page-nav">
+            <a href="bulk-generation.html" class="prev">&laquo; 一括ディスクリプション生成</a>
+            <span></span>
+        </nav>
+
+        <footer class="manual-footer">
+            <p>作者: <a href="https://www.tsuyoshikashiwazaki.jp/profile/" target="_blank" rel="noopener">柏崎剛（Tsuyoshi Kashiwazaki）</a></p>
+            <p>プラグイン: Kashiwazaki SEO Auto Description v1.0.1</p>
+        </footer>
+    </main>
+    <div class="lightbox"></div>
+    <script src="js/manual.js?v=1"></script>
+</body>
+</html>
